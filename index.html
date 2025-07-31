@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Общие стили */
     * {
       margin: 0;
       padding: 0;
@@ -82,12 +81,14 @@
 
     /* Навигация */
     header {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
+      border-bottom: 1px solid #e5e7eb;
     }
 
     nav {
@@ -120,21 +121,45 @@
       color: #1d4ed8;
     }
 
-    /* Герой-секция */
+    /* Герой с фоном */
     .hero {
-      padding: 10rem 0 6rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+      padding: 12rem 0 6rem;
+      background: url('https://images.unsplash.com/photo-1600498191902-9a6e1c29e886?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
       text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero h1 {
       margin-bottom: 1.5rem;
+      font-size: 3rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto 2rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     /* Услуги */
@@ -150,18 +175,46 @@
       border-radius: 10px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
     }
 
-    /* Технологии */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #1d4ed8;
+    }
+
+    /* Технологии с фоном */
     .tech {
-      background: #f1f5f9;
+      background: url('https://images.unsplash.com/photo-1604525534732-f4e918687c77?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      position: relative;
+    }
+
+    .tech::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
 
     .tech-content {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
@@ -171,11 +224,40 @@
     .tech-text {
       flex: 1;
       min-width: 300px;
+      color: #e2e8f0;
     }
 
-    /* Подход */
+    .tech-text p {
+      color: #e2e8f0;
+    }
+
+    .tech h2 {
+      color: white;
+      text-align: left;
+    }
+
+    /* Подход с фоном */
     .approach {
-      background: white;
+      background: url('https://images.unsplash.com/photo-1557683316-104b4d87477f?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
+      color: #1f2937;
+      position: relative;
+    }
+
+    .approach::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 1;
+    }
+
+    .approach-content {
+      position: relative;
+      z-index: 2;
     }
 
     .approach-grid {
@@ -185,15 +267,16 @@
     }
 
     .approach-item {
-      background: #f8fafc;
+      background: white;
       padding: 1.5rem;
       border-radius: 8px;
       border-left: 4px solid #1d4ed8;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
     /* Миссия и ценности */
     .values {
-      background: #f8fafc;
+      background: #f1f5f9;
     }
 
     .values-grid {
@@ -210,13 +293,28 @@
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
-    /* Оборудование */
+    /* Оборудование с фоном */
     .equipment {
-      background: #1e293b;
+      background: url('https://images.unsplash.com/photo-1604214737265-5f132d67172b?w=1600&h=900&fit=crop') no-repeat center center fixed;
+      background-size: cover;
       color: white;
+      position: relative;
+    }
+
+    .equipment::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
 
     .equipment .container {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 3rem;
@@ -283,6 +381,9 @@
       .hero, .tech, .approach, .values, .equipment, .contacts {
         padding: 4rem 0;
       }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
@@ -304,12 +405,14 @@
     </div>
   </header>
 
-  <!-- Герой -->
+  <!-- Герой с реальным фото -->
   <section class="hero">
     <div class="container">
-      <h1>Упаковка, которая продает</h1>
-      <p>DD Packaging создает функциональную, красивую и надежную упаковку для чая, кофе, косметики, алкоголя и других продуктов. Современные технологии, индивидуальный подход и качество, которому доверяют.</p>
-      <a href="#contacts" class="btn">Связаться с нами</a>
+      <div class="hero-content">
+        <h1>Упаковка, которая продает</h1>
+        <p>DD Packaging создает функциональную, красивую и надежную упаковку для чая, кофе, косметики, алкоголя и других продуктов. Современные технологии, индивидуальный подход и качество, которому доверяют.</p>
+        <a href="#contacts" class="btn">Связаться с нами</a>
+      </div>
     </div>
   </section>
 
@@ -354,7 +457,7 @@
     </div>
   </section>
 
-  <!-- Технологии -->
+  <!-- Технологии с реальным фото -->
   <section id="tech" class="tech">
     <div class="container">
       <h2>Современные технологии</h2>
@@ -364,32 +467,34 @@
           <p>Мы постоянно увеличиваем количество вариантов отделки продукции и открыты для любых испытаний и тестов. Цифровое управление процессами, автоматизированные линии и контроль на каждом этапе — гарантия безупречного результата.</p>
         </div>
         <div>
-          <img src="ac51eb736df511f0b8400efd8c378a3b_1.jpg" alt="Технологии" />
+          <img src="ac51eb736df511f0b8400efd8c378a3b_1.jpg" alt="Производственные линии" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Подход -->
+  <!-- Подход с реальным фото -->
   <section id="approach" class="approach">
     <div class="container">
       <h2>Как мы работаем</h2>
-      <div class="approach-grid">
-        <div class="approach-item">
-          <h3>Подбор материала</h3>
-          <p>Для каждого изделия мы индивидуально подходим к выбору картона, учитывая макулатурный или целлюлозный состав, жесткость, белизну, возможность дополнительной отделки и другие параметры.</p>
-        </div>
-        <div class="approach-item">
-          <h3>Надежные поставщики</h3>
-          <p>Мы работаем с проверенными поставщиками сырья, которые обеспечивают стабильные поставки, высокое качество и соблюдение стандартов.</p>
-        </div>
-        <div class="approach-item">
-          <h3>Резерв и надежность</h3>
-          <p>Подбираем основной и дублирующий картон, чтобы минимизировать риски и обеспечить бесперебойное производство.</p>
-        </div>
-        <div class="approach-item">
-          <h3>Оптимизация</h3>
-          <p>Прорабатываем параметры производства, хранения и логистики, чтобы предложить клиенту оптимальную стоимость при максимальном качестве.</p>
+      <div class="approach-content">
+        <div class="approach-grid">
+          <div class="approach-item">
+            <h3>Подбор материала</h3>
+            <p>Для каждого изделия мы индивидуально подходим к выбору картона, учитывая макулатурный или целлюлозный состав, жесткость, белизну, возможность дополнительной отделки и другие параметры.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Надежные поставщики</h3>
+            <p>Мы работаем с проверенными поставщиками сырья, которые обеспечивают стабильные поставки, высокое качество и соблюдение стандартов.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Резерв и надежность</h3>
+            <p>Подбираем основной и дублирующий картон, чтобы минимизировать риски и обеспечить бесперебойное производство.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Оптимизация</h3>
+            <p>Прорабатываем параметры производства, хранения и логистики, чтобы предложить клиенту оптимальную стоимость при максимальном качестве.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -420,7 +525,7 @@
     </div>
   </section>
 
-  <!-- Оборудование -->
+  <!-- Оборудование с реальным фото -->
   <section id="equipment" class="equipment">
     <div class="container">
       <h2>Продажа оборудования</h2>
@@ -428,7 +533,7 @@
         <p>Помимо производства упаковки, мы предлагаем современное оборудование для упаковочных линий. Автоматические фасовочные машины, термоусадочные тоннели, этикетировочные комплексы — всё под ключ с обучением персонала и сервисной поддержкой.</p>
         <a href="mailto:sales@ddpackaging.ru" class="btn">Запросить каталог</a>
       </div>
-      <img src="2.jpg" alt="Оборудование" style="max-width: 400px;" />
+      <img src="2.jpg" alt="Упаковочное оборудование" style="max-width: 400px;" />
     </div>
   </section>
 
